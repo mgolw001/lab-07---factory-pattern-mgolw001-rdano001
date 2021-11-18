@@ -1,8 +1,8 @@
 #ifndef __MULT_HPP__
 #define __MULT_HPP__
 
-#include "base.hpp"
-#include "op.hpp"
+#include "Base.hpp"
+#include "Op.hpp"
 #include <string>
 
 class Mult : public Base {

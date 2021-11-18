@@ -1,8 +1,8 @@
 #ifndef __SUB_HPP__
 #define __SUB_HPP__
 
-#include "base.hpp"
-#include "op.hpp"
+#include "Base.hpp"
+#include "Op.hpp"
 #include <string>
 
 class Sub : public Base {
@@ -12,7 +12,7 @@ class Sub : public Base {
               Base* rightOP;
 
     public:
-        Sub(Base*,Base*){
+        Sub(Base*lop , Base*rop){
 		leftOP = lop;
 		rightOP = rop;
 	}

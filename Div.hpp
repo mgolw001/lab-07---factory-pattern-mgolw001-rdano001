@@ -1,8 +1,8 @@
 #ifndef __DIV_HPP__
 #define __DIV_HPP__
 
-#include "base.hpp"
-#include "op.hpp"
+#include "Base.hpp"
+#include "Op.hpp"
 #include <string>
 
 class Div : public Base {
@@ -11,7 +11,7 @@ class Div : public Base {
               Base* leftOP;
               Base* rightOP;
     public:
-        Div(Base*,Base*){
+        Div(Base* lop ,Base* rop){
 		leftOP = lop;
 		rightOP = rop;
 	} 

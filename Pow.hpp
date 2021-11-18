@@ -1,9 +1,9 @@
 #ifndef __POW_HPP__
 #define __POW_HPP__
 
-#include "base.hpp"
+#include "Base.hpp"
 #include "math.h"
-#include "op.hpp"
+#include "Op.hpp"
 #include <string>
 
 class Pow : public Base {
