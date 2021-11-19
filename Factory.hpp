@@ -56,6 +56,8 @@ class Factory
 						parsed = new Pow(prev,next);
 						next = parsed;
 					}
+					prev = curr;
+					curr = next; 
 				}	
 			}
 			return nullptr;
