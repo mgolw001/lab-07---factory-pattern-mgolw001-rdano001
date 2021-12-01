@@ -22,7 +22,7 @@ class Factory
 			vector<string> s;
 			for ( unsigned int i = 0; i < length; i++){
 				char* c = input[i];
-				s.push_back(*c);
+				s.push_back(&c);
 			}
 		   return s;
 		}
@@ -44,8 +44,8 @@ class Factory
 						}
 						temp1 = stod(ex[i-1]);
 						temp2 = stod(ex[i+1]);
-						Base1* op1 = new Op(temp1);
-						Base2* op2 = new Op(temp2);
+						Base* op1 = new Op(temp1);
+						Base* op2 = new Op(temp2);
 						parsed = new Add(op1,op2);		
 						
 					}
@@ -55,8 +55,8 @@ class Factory
                                                 }
 						temp1 = stod(ex[i-1]);
                                                 temp2 = stod(ex[i+1]);
-                                                Base1* op1 = new Op(temp1);
-                                                Base2* op2 = new Op(temp2);
+                                                Base* op1 = new Op(temp1);
+                                                Base* op2 = new Op(temp2);
                                                 parsed = new Sub(op1,op2);	
 					}
 					else if(ex[i]=="*"){
@@ -65,8 +65,8 @@ class Factory
                                                 }
 						temp1 = stod(ex[i-1]);
                                                 temp2 = stod(ex[i+1]);
-                                                Base1* op1 = new Op(temp1);
-                                                Base2* op2 = new Op(temp2);
+                                                Base* op1 = new Op(temp1);
+                                                Base* op2 = new Op(temp2);
                                                 parsed = new Mult(op1,op2);
 					}
 					else if(ex[i]=="/"){
@@ -75,8 +75,8 @@ class Factory
                                                 }
 						temp1 = stod(ex[i-1]);
                                                 temp2 = stod(ex[i+1]);
-                                                Base1* op1 = new Op(temp1);
-                                                Base2* op2 = new Op(temp2);
+                                                Base* op1 = new Op(temp1);
+                                                Base* op2 = new Op(temp2);
                                                 parsed = new Div(op1,op2);
 					}
 					else if(ex[i]=="**"){
@@ -85,8 +85,8 @@ class Factory
                                                 }
 						temp1 = stod(ex[i-1]);
                                                 temp2 = stod(ex[i+1]);
-                                                Base1* op1 = new Op(temp1);
-                                                Base2* op2 = new Op(temp2);
+                                                Base* op1 = new Op(temp1);
+                                                Base* op2 = new Op(temp2);
                                                 parsed = new Pow(op1,op2);
 					}
 					
