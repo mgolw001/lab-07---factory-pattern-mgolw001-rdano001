@@ -95,5 +95,5 @@ class Factory
 			}
 			return parsed;
 		}
-};	}
+};
 #endif //__FACTORY_HPP__
