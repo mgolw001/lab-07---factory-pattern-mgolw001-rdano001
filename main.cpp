@@ -10,6 +10,7 @@ int main(int argc, char **argv)
 	if(expression!=nullptr){
 		for (int i = 1; i<argc-1;i++){
 			cout<<argv[i];
+		}
 		expression->stringify();
         	cout<<" = "<<expression->evaluate()<<endl;	
 	}
