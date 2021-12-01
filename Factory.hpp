@@ -9,58 +9,91 @@
 #include "Div.hpp"
 #include "Pow.hpp"
 #include <iostream>
+#include <cstring>
+#include <string>
+#include <vector>
 using namespace std;
 
 class Factory
 {
 	public:
+		
+		vector<string> DereferenceInput(char** input, int length){ // turn input to string
+			vector<string> s;
+			for ( unsigned int i = 0; i < length; i++){
+				char* c = input[i];
+				s.push_back(*c);
+			}
+		   return s;
+		}
+
 		Base* parse(char** input, int length){
+			vector<string> ex = DereferenceInput(input, length); 
 			if(length>0){
-				Base* prev = nullptr;
-				Base* next = nullptr;
+				//Base* prev = nullptr;
+				//Base* next = nullptr;
 				Base* parsed;
+				double temp1;
+				double temp2;
+
 				for(int i =0; i<length; i++){
 					
-					if(input[i]=="+"){
+					if(ex[i]=="+"){
 						if(i==0||i==length-1){//the first and last character cannot be an operator
 							return nullptr;
 						}
-						parsed = new Add(prev,next);		
-						next = parsed;
+						temp1 = stod(ex[i-1]);
+						temp2 = stod(ex[i+1]);
+						Base1* op1 = new Op(temp1);
+						Base2* op2 = new Op(temp2);
+						parsed = new Add(op1,op2);		
+						
 					}
-					else if(input[i]=="-"){
+					else if(ex[i]=="-"){
 						if(i==0||i==length-1){
                                                         return nullptr;
                                                 }
-						parsed = new Sub(prev,next);
-						next = parsed;	
+						temp1 = stod(ex[i-1]);
+                                                temp2 = stod(ex[i+1]);
+                                                Base1* op1 = new Op(temp1);
+                                                Base2* op2 = new Op(temp2);
+                                                parsed = new Sub(op1,op2);	
 					}
-					else if(input[i]=="*"){
+					else if(ex[i]=="*"){
 						if(i==0||i==length-1){
                                                         return nullptr;
                                                 }
-						parsed = new Mult(prev,next);
-						next = parsed;
+						temp1 = stod(ex[i-1]);
+                                                temp2 = stod(ex[i+1]);
+                                                Base1* op1 = new Op(temp1);
+                                                Base2* op2 = new Op(temp2);
+                                                parsed = new Mult(op1,op2);
 					}
-					else if(input[i]=="/"){
+					else if(ex[i]=="/"){
 						if(i==0||i==length-1){
                                                         return nullptr;
                                                 }
-						parsed = new Div(prev,next);
-						next = parsed;
+						temp1 = stod(ex[i-1]);
+                                                temp2 = stod(ex[i+1]);
+                                                Base1* op1 = new Op(temp1);
+                                                Base2* op2 = new Op(temp2);
+                                                parsed = new Div(op1,op2);
 					}
-					else if(input[i]=="**"){
+					else if(ex[i]=="**"){
 						if(i==0||i==length-1){
                                                         return nullptr;
                                                 }
-						parsed = new Pow(prev,next);
-						next = parsed;
+						temp1 = stod(ex[i-1]);
+                                                temp2 = stod(ex[i+1]);
+                                                Base1* op1 = new Op(temp1);
+                                                Base2* op2 = new Op(temp2);
+                                                parsed = new Pow(op1,op2);
 					}
-					prev = curr;
-					curr = next; 
+					
+					 
 				}	
 			}
-			return nullptr;
+			return parsed;
 		}
-};
+};	}
 #endif //__FACTORY_HPP__
