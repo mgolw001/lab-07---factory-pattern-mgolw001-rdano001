@@ -29,10 +29,10 @@ class Factory
 
 		Base* parse(char** input, int length){
 			vector<string> ex = DereferenceInput(input, length); 
+			Base* parsed = nullptr;
 			if(length>0){
 				//Base* prev = nullptr;
 				//Base* next = nullptr;
-				Base* parsed;
 				double temp1;
 				double temp2;
 
