@@ -22,7 +22,7 @@ class Factory
 			vector<string> s;
 			for ( unsigned int i = 0; i < length; i++){
 				char* c = input[i];
-				s.push_back(&c);
+				s.push_back(c);
 			}
 		   return s;
 		}
