@@ -17,5 +17,6 @@ int main(int argc, char **argv)
 	else{
 		cout<<"ERROR INVALID INPUT"<<endl;
 	}
+	delete expression;
 	return 0;
 }
