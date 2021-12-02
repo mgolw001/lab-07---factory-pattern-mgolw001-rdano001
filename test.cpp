@@ -1,6 +1,27 @@
 #include "gtest/gtest.h"
 #include "Base.hpp"
 #include "Factory.hpp"
+#include <iostream>
+TEST(Test, NoInput){
+        Factory f;
+        char** arr;
+        Base* expression = f.parse(arr,0);
+        EXPECT_EQ(expression,nullptr);
+}
+
+TEST(AddTest, AddTwoNums){
+	Factory f;
+	//char* arr[] = {'1','+','1'};
+	char* arr [] {"1","+","1"};
+
+	//*arr[0] = '1';
+	//*arr[1] = '+';
+	//*arr[2] = '1';	
+	Base* expression = f.parse(arr,3);
+	double result = expression->evaluate();
+	double answer = 2;
+	EXPECT_EQ(result,answer);
+}
 
 //insert test cases 
 
