@@ -47,6 +47,7 @@ class Factory
 						temp2 = stod(ex[i+1]);
 						Base* op1 = new Op(temp1);
 						Base* op2 = new Op(temp2);
+						delete parsed;
 						parsed = new Add(op1,op2);		
 						}
 						else {
@@ -54,6 +55,7 @@ class Factory
 						temp2 = stod(ex[i+1]);
 						Base* op1 = new Op(temp1);
                                                 Base* op2 = new Op(temp2);
+						delete parsed;
                                                 parsed = new Add(op1,op2);
 						}
 					}
@@ -66,6 +68,7 @@ class Factory
                                                 temp2 = stod(ex[i+1]);
                                                 Base* op1 = new Op(temp1);
                                                 Base* op2 = new Op(temp2);
+						delete parsed;
                                                 parsed = new Sub(op1,op2);
                                                 }
                                                 else {
@@ -73,6 +76,7 @@ class Factory
                                                 temp2 = stod(ex[i+1]);
                                                 Base* op1 = new Op(temp1);
                                                 Base* op2 = new Op(temp2);
+						delete parsed;
                                                 parsed = new Sub(op1,op2);
                                                 }	
 					}
@@ -85,6 +89,7 @@ class Factory
                                                 temp2 = stod(ex[i+1]);
                                                 Base* op1 = new Op(temp1);
                                                 Base* op2 = new Op(temp2);
+						delete parsed;
                                                 parsed = new Mult(op1,op2);
                                                 }
                                                 else {
@@ -92,6 +97,7 @@ class Factory
                                                 temp2 = stod(ex[i+1]);
                                                 Base* op1 = new Op(temp1);
                                                 Base* op2 = new Op(temp2);
+						delete parsed;
                                                 parsed = new Mult(op1,op2);
                                                 }
 					}
@@ -102,15 +108,23 @@ class Factory
 						if (parsed == nullptr){
                                                 temp1 = stod(ex[i-1]);
                                                 temp2 = stod(ex[i+1]);
+						if(temp2==0){
+							return nullptr;
+						}
                                                 Base* op1 = new Op(temp1);
                                                 Base* op2 = new Op(temp2);
+						delete parsed;
                                                 parsed = new Div(op1,op2);
                                                 }
                                                 else {
                                                 temp1 = parsed->evaluate();
                                                 temp2 = stod(ex[i+1]);
+						if(temp2==0){
+                                                        return nullptr;
+                                                }
                                                 Base* op1 = new Op(temp1);
                                                 Base* op2 = new Op(temp2);
+						delete parsed;
                                                 parsed = new Div(op1,op2);
                                                 }
 					}
@@ -123,6 +137,7 @@ class Factory
                                                 temp2 = stod(ex[i+1]);
                                                 Base* op1 = new Op(temp1);
                                                 Base* op2 = new Op(temp2);
+						delete parsed;
                                                 parsed = new Pow(op1,op2);
                                                 }
                                                 else {
@@ -130,6 +145,7 @@ class Factory
                                                 temp2 = stod(ex[i+1]);
                                                 Base* op1 = new Op(temp1);
                                                 Base* op2 = new Op(temp2);
+						delete parsed;
                                                 parsed = new Pow(op1,op2);
                                                 }
 					}
