@@ -1,4 +1,6 @@
 #include "gtest/gtest.h"
+#include "Base.hpp"
+#include "Factory.hpp"
 
 //insert test cases 
 
