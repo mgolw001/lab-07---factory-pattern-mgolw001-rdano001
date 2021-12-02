@@ -192,6 +192,46 @@ TEST(PowTest, PowFourNums){
         delete expression;
 }
 
+TEST(MultiOpTest, AddSub){
+        Factory f;
+        char* arr [] {"5","-","2","+","3","-","2"};
+        Base* expression = f.parse(arr,7);
+        double result = expression->evaluate();
+        double answer =4;
+        EXPECT_EQ(result,answer);
+        delete expression;
+}
+
+TEST(MultiOpTest, AddSubMult){
+        Factory f;
+        char* arr [] {"5","-","2","+","3","*","2"};
+        Base* expression = f.parse(arr,7);
+        double result = expression->evaluate();
+        double answer =12;
+        EXPECT_EQ(result,answer);
+        delete expression;
+}
+
+TEST(MultiOpTest, AddSubMultDiv){
+        Factory f;
+        char* arr [] {"5","-","2","+","3","*","2","/","3"};
+        Base* expression = f.parse(arr,9);
+        double result = expression->evaluate();
+        double answer =4;
+        EXPECT_EQ(result,answer);
+        delete expression;
+}
+
+TEST(MultiOpTest, AddSubMultDivPow){
+        Factory f;
+        char* arr [] {"5","-","2","+","3","*","2","/","3","**","2"};
+        Base* expression = f.parse(arr,11);
+        double result = expression->evaluate();
+        double answer =16;
+        EXPECT_EQ(result,answer);
+        delete expression;
+}
+
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
